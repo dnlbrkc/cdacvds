@@ -1,6 +1,6 @@
 library(foreach)
 library(doParallel)
-setwd("allJournals/")
+setwd("allJournals/allJournals")
 
 cores=detectCores()
 cl <- makeCluster(cores[1]-1) #not to overload your computer

@@ -19,7 +19,7 @@ sjr_journals$issn <- new_issn
 
 
 #load journal ISSNs from MAG
-setwd("Porter_Data/journPoralISSN/")
+setwd("Porter_Data/journalISSN/")
 files <- list.files()
 mat <- matrix(0,ncol=3,nrow=1)
 for(f in files){
@@ -111,7 +111,6 @@ journalCategories <- joined %>% group_by(id) %>% right_join(M1)
 save("journalCategories.Rdata")
 #categories=joined %>% select(categories,id)
 #jcat <- left_join(M1,e)
-#jcat <- jcat %>%group_by(papers,references)%>% slice(1)
 
 
 
@@ -130,6 +129,8 @@ save("journalCategories.Rdata")
 # cl <- makeCluster(cores[1]-1) #not to overload your computer
 # registerDoParallel(cl)
 # #D <- foreach(p = unique(jcat$papers)) %dopar% {
+
+jcat <- jcat %>%group_by(papers,references)%>% slice(1)
 
 paper_info <-vector()
 c=0
